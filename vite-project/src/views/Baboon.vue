@@ -8,10 +8,17 @@
           class="card-img"
           />
   </div>
+  <div>
+    <h2>{{ storeCounter.text }}</h2>
+    <h2>{{ storeCounter.count }}</h2>
+    <button @click="storeCounter.increaseCount">Test</button>
+  </div>
 </template>
 
 <script setup>
   import selection from "../components/Selection.vue"
+  import { userStore } from "@/stores/user";
+  const storeCounter = userStore()
 </script>
 
 <style lang="scss" scoped>
