@@ -1,5 +1,4 @@
 <template>
-    <selection />
     <div>
       <h1>Sign Into Existing Account</h1>
       <div>
@@ -12,7 +11,6 @@
   <script setup>
   import { ref } from "vue";
   import SignUp from "../components/SignUp.vue";
-  import selection from "../components/Selection.vue";
   const username = ref("");
   const password = ref("");
   const user = true;

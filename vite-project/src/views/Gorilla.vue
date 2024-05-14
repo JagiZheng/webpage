@@ -1,5 +1,4 @@
 <template>
-    <selection/>
     <div>
         <img
             src="../assets/Gorilla.jpg"
@@ -24,7 +23,6 @@
 </template>
 
 <script setup>
-    import selection from "../components/Selection.vue";
     import { ref } from "vue";
     import { userStore } from "@/stores/user";
 

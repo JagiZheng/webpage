@@ -1,5 +1,4 @@
 <template>
-  <selection/>
   <div>
       <h1>Insert Cool Fact About Baboon</h1>
       <img
@@ -16,7 +15,6 @@
 </template>
 
 <script setup>
-  import selection from "../components/Selection.vue"
   import { userStore } from "@/stores/user";
   const storeCounter = userStore()
 </script>

@@ -5,10 +5,6 @@ import { RouterLink, RouterView } from 'vue-router'
 
 <template>
   <div>
-    <nav>
-      <RouterLink to="/SecretDoor">Secret Door</RouterLink>
-      <RouterLink to="/SignupPage">SignUp Page</RouterLink>
-    </nav>
   </div>
   <RouterView />
 </template>
