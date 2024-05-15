@@ -1,44 +1,58 @@
 <template>
+  <Profile/>
+  <div class = "container">
+    <h1>Sign Up To Start!</h1>
     <div>
-      <h1>Sign Into Existing Account</h1>
+      <h1>Login to An Account</h1>
       <div>
-        <SignUp v-if="user" />
+        <SignUp />
+        <form name="login-form" @submit.prevent="login(username, password)">
+          <div>
+            <label for="username">Username: </label>
+            <input id="username" type="text" v-model="username" />
+          </div>
+          <div>
+            <label for="password">Password: </label>
+            <input id="password" type="password" v-model="password" />
+          </div>
+            <!--button class="submit-button" type="submit">Sign Up</button-->
+        </form>        
       </div>
-      <RouterLink to="/SignupPage">Don't have an account?</RouterLink>
+        <RouterLink to="/about">
+          <button @click="user.check(username, password)">Confirm</button>
+        </RouterLink>
+      <div>
+        <RouterLink to="/">No Account?</RouterLink>
+      </div>
     </div>
-  </template>
-  
-  <script setup>
+  </div>
+</template>
+
+<script setup>
+  import Profile from "../components/Profile.vue"
   import { ref } from "vue";
-  import SignUp from "../components/SignUp.vue";
+  import { userStore } from "@/stores/user"
   const username = ref("");
   const password = ref("");
-  const user = true;
-  function notLogin(username, password) {
-    console.log(username);
+  const user = userStore();
+
+  async function login(username, password) {
+    console.log(username); 
     console.log(password);
   }
-  function change() {
-    user = false;
+</script>
+
+<style lang="scss" scoped>
+  .container{
+    overflow: auto;
+    float: center;
+    background-color: lightgreen;
+    line-height: 2;
+    color: black;
+    border-radius: 20px;
+    height: 14.5vw;
+    padding-left: 100px;
+    padding-right: 100px;
+    text-align: center;
   }
-  async function login(username, password) {
-    try {
-      const res = await fetch("http://localhost:3000/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          username: username.toLowerCase(),
-          password: password,
-        }),
-      });
-      const user = await res.json();
-      console.log(user);
-    } catch (error) {
-      console.log(error);
-    }
-  }
-  </script>
-  
-  <style scoped></style>
+</style>

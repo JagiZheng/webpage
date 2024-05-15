@@ -1,13 +1,12 @@
 <template>
+  <Profile/>
   <Card/>
-  <div>
-    <selection/>
-  </div>
+  
 </template>
 
 <script setup>
   import Card from "../components/card.vue"
-  import selection from "../components/Selection.vue"
+  import Profile from "@/components/Profile.vue";
 </script>
 
 <style lang="scss" scoped>
