@@ -48,13 +48,12 @@
     top: 30%;
     left: 50%;
     transform: translate(-50%, -50%);
-    overflow: auto;
     float: center;
     background-color: lightgreen;
     line-height: 2;
     color: black;
     border-radius: 20px;
-    height: 14.5vw;
+    height: 18.5vw;
     padding-left: 200px;
     padding-right: 200px;
     text-align: center;

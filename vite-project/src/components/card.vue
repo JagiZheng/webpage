@@ -21,7 +21,19 @@
               <option value="green">Green</option>
               <option value="yellow">Yellow</option>
             </select>
-            <button @click= "inputCounter.changeColor(color);getColor()" class="button">Apply Style</button>
+            <button @click= "inputCounter.changeColor(color);getColor()" class="button">Apply Color</button>
+          </div>
+          <div class="font"> 
+            <label for="font" style="color:black;">Choose a font:</label>
+            <select name="fonts" id="selectFont" v-model="font">
+              <option value="Times New Roman">Times New Roman</option>
+              <option value="Arial">Arial</option>
+              <option value="Courier New">Courier New</option>
+              <option value="Lucida Handwriting">Lucida Handwriting</option>
+              <option value="Copperplate">Copperplate</option>
+              <option value="Papyrus">Papyrus</option>
+            </select>
+            <button @click="inputCounter.changeFont(font);getFont()">Apply Font</button>
           </div>
         </div>
       </div>
@@ -35,14 +47,25 @@
   const storeCounter = userStore(); 
   const inputCounter = inputStore();
   const edit = ref("");
-  const color = ref("")
+  const color = ref("");
+  const font = ref("");
   function getColor(){
     document.getElementById("edit").style.color = inputCounter.input_color;
-  }
+  };
+  function getFont(){
+    document.getElementById("edit").style.font = inputCounter.input_font;
+  };
 </script>
 
 <style lang="scss" scoped>
+  :root{
+    font:"Arial"
+  }
   .header{
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translate(-60%, -80%);
     margin-left: 50px;
     margin-right: 50px;
     font-size: 3rem;
@@ -50,6 +73,10 @@
     text-align: center;
   }
   .container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     display: flex;
     justify-content: space-between;
     flex-direction: row;
@@ -81,4 +108,7 @@
     flex-direction: column;
     align-items: center;
   } 
+  .font{
+    margin-left: 30px;
+  }
 </style>
