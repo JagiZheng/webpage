@@ -10,7 +10,7 @@
                     <a href="#">Setting</a>
                 </RouterLink>
                 <RouterLink to="/">
-                    <a href="#" @click="storeCounter.logout()">Logout</a>
+                    <a href="#" @click="storeCounter.logout();storeCounter.changeColor(color);changeFont(font);getColor();getFont();">Logout</a>
                 </RouterLink>
             </div>
         </div>
@@ -20,6 +20,14 @@
 <script setup>
     import { userStore } from '@/stores/user';
     const storeCounter = userStore();
+    const color = storeCounter.user_property.color;
+    const font = storeCounter.user_property.font;
+    function getColor(){
+        document.body.style.backgroundColor = storeCounter.user_property.color;
+    };
+    function getFont(){
+        document.body.style.fontSize = storeCounter.user_property.font_size;
+    }
 </script>
 
 <style lang="scss" scoped>

@@ -58,6 +58,8 @@ export const userStore = defineStore({
         this.user.password = "";
         this.title = "";
         this.edit = "";
+        this.user_property.color = "";
+        this.user_property.font = "";
     }
   }
 })

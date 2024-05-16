@@ -26,7 +26,7 @@
               <option value="8px">8</option>
               <option value="12px">12</option>
               <option value="16px">16</option>
-              <option value="30px">30</option>
+              <option value="24px">24</option>
             </select>
             <button @click= "storeCounter.changeFont(font_size);getFont()" class="button">Apply Font</button>
         </div>

@@ -53,7 +53,7 @@
     line-height: 2;
     color: black;
     border-radius: 20px;
-    height: 18.5vw;
+    height: 20.5vw;
     padding-left: 200px;
     padding-right: 200px;
     text-align: center;
