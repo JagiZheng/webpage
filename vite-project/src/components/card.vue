@@ -1,15 +1,25 @@
 <template>
-    <div>
+    <div style="color:black;">
       <h1 class = "header">Card Designer</h1>
       <div class="container">
         <div class="card">
+          <div class="title">
+            <h2>{{ storeCounter.title }}</h2>
+          </div>
           <div>
-            <h2 id="edit" style="color:black;">{{ storeCounter.edit }}</h2>
+            <h2 id="edit">{{ storeCounter.edit }}</h2>
+          </div>
+          <div class="username_display">
+            <h2>From: {{ storeCounter.user.username }}</h2>
           </div>
         </div>
         <div class="input_field">
           <div class="input">
-            <input type="text" v-model="edit">  
+            <h1>Create a Title!</h1>
+            <input type="text" v-model="title">
+            <button @click="storeCounter.changeTitle(title)" class="button">Add Title</button>
+            <h1>Type in your text!</h1>
+            <input type="text" v-model="edit">
             <button @click="storeCounter.addEditor(edit)" class="button">Add Text</button>
           </div>
           <div class="color">
@@ -23,18 +33,6 @@
             </select>
             <button @click= "inputCounter.changeColor(color);getColor()" class="button">Apply Color</button>
           </div>
-          <div class="font"> 
-            <label for="font" style="color:black;">Choose a font:</label>
-            <select name="fonts" id="selectFont" v-model="font">
-              <option value="Times New Roman">Times New Roman</option>
-              <option value="Arial">Arial</option>
-              <option value="Courier New">Courier New</option>
-              <option value="Lucida Handwriting">Lucida Handwriting</option>
-              <option value="Copperplate">Copperplate</option>
-              <option value="Papyrus">Papyrus</option>
-            </select>
-            <button @click="inputCounter.changeFont(font);getFont()">Apply Font</button>
-          </div>
         </div>
       </div>
     </div>
@@ -47,20 +45,14 @@
   const storeCounter = userStore(); 
   const inputCounter = inputStore();
   const edit = ref("");
+  const title = ref("");
   const color = ref("");
-  const font = ref("");
   function getColor(){
     document.getElementById("edit").style.color = inputCounter.input_color;
-  };
-  function getFont(){
-    document.getElementById("edit").style.font = inputCounter.input_font;
   };
 </script>
 
 <style lang="scss" scoped>
-  :root{
-    font:"Arial"
-  }
   .header{
     position: fixed;
     top: 10%;
@@ -107,7 +99,20 @@
     justify-content: space-around;
     flex-direction: column;
     align-items: center;
+    word-wrap: break-all;
   } 
+  .username_display{
+    position: fixed;
+    top: 90%;
+    left: 30%;
+  }
+  .title{
+    display: inline-block;
+    position: absolute;
+    margin: 10px;
+    text-align: center;
+    top: 5%;
+  }
   .font{
     margin-left: 30px;
   }

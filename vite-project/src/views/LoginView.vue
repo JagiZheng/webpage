@@ -44,15 +44,18 @@
 
 <style lang="scss" scoped>
   .container{
-    overflow: auto;
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     float: center;
     background-color: lightgreen;
     line-height: 2;
     color: black;
     border-radius: 20px;
-    height: 14.5vw;
-    padding-left: 100px;
-    padding-right: 100px;
+    height: 18.5vw;
+    padding-left: 200px;
+    padding-right: 200px;
     text-align: center;
   }
 </style>

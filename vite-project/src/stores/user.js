@@ -10,7 +10,12 @@ export const userStore = defineStore({
     count: 0,
     edit: "",
     text: "",
-    error: ""
+    title:"",
+    error: "",
+    user_property:{
+        color: "",
+        font_size: ""
+    }
   }),
   actions: {
     confirm(username, password){
@@ -30,6 +35,12 @@ export const userStore = defineStore({
     increaseCount(){
         this.count++
     },
+    changeColor(color){
+        this.user_property.color = color;
+    },
+    changeFont(font_size){
+        this.user_property.font_size = font_size
+    },
     addEditor(edit){
         if (this.user.username == ""){
         this.edit = "Cannot make changes without logging in first"
@@ -38,6 +49,15 @@ export const userStore = defineStore({
         this.edit = edit
         this.text = this.user.username + " made a change on " + new Date();
         }
+    },
+    changeTitle(title){
+        this.title = title;
+    },
+    logout(){
+        this.user.username = "";
+        this.user.password = "";
+        this.title = "";
+        this.edit = "";
     }
   }
 })

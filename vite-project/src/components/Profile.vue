@@ -1,20 +1,25 @@
 <template>
-    <div class="dropdown">
-        <button>Profile</button>
-        <div class="dropdown-options">
-            <RouterLink to="/about">
-                <a href="#">My Cards</a>
-            </RouterLink>
-            <a href="#">Setting</a>
-            <RouterLink to="/">
-                <a href="#" @click="storeCounter.logout()">Logout</a>
-            </RouterLink>
+    <div>
+        <div class="dropdown">
+            <button>Profile</button>
+            <div class="dropdown-options">
+                <RouterLink to="/about">
+                    <a href="#">My Cards</a>
+                </RouterLink>
+                <RouterLink to="/settings">
+                    <a href="#">Setting</a>
+                </RouterLink>
+                <RouterLink to="/">
+                    <a href="#" @click="storeCounter.logout()">Logout</a>
+                </RouterLink>
+            </div>
         </div>
     </div>
 </template>
 
 <script setup>
-
+    import { userStore } from '@/stores/user';
+    const storeCounter = userStore();
 </script>
 
 <style lang="scss" scoped>
@@ -42,7 +47,8 @@
     .dropdown {
     display: inline-block;
     position: absolute;
-    margin: 40px;
+    margin: 30px;
+    margin-right: 100px;
     right: 0;
     top: 0;
     }
